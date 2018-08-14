@@ -23,7 +23,10 @@ var carDetails = {
 
 //Code Here
 
-
+let color =  carDetails.color
+let make =  carDetails.make
+let model =  carDetails.model
+let year =  carDetails.year
 
 ////////// PROBLEM 2 //////////
 
@@ -35,7 +38,9 @@ var carDetails = {
 
 function greeting( obj ) {
   //Code Here
-  
+  let firstName = obj.firstName
+ let lastName = obj.lastName
+ let title = obj.title
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -55,7 +60,9 @@ function greeting( obj ) {
 
 //Code Here
 
-
+function totalPopulation(obj){
+  return obj.california + obj.utah + obj.texas + obj.arizona
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -68,7 +75,14 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+function ingredients(obj){
+  let arr = []
+  let carb = obj.carb
+  let fat = obj.fat
+  let protein = obj.protein
+  arr.push(carb, fat, protein)
+  return arr
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -87,7 +101,13 @@ function greeting( obj ) {
 
 //Code Here
 
-
+function largeNumbers(obj){
+  var smallest = 'blank'
+  obj.first < obj.second &&  obj.first < obj.third ? smallest = obj.first :
+  obj.second < obj.first &&  obj.second < obj.third ? smallest = obj.second :
+  smallest = obj.third
+  return smallest
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -99,4 +119,10 @@ function greeting( obj ) {
 
 //Code Here
 
-
+function numberGroups(obj){
+  var longest = 'blank'
+  obj.a.length > obj.b.length &&  obj.a.length > obj.c.length ? longest = obj.a :
+  obj.b.length > obj.a.length &&  obj.b.length > obj.c.length ? longest = obj.b :
+  longest = obj.c
+  return longest
+}

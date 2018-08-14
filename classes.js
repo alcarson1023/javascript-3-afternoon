@@ -30,6 +30,17 @@
 */
 
 //Code Here
+class Employee{
+  constructor(first_name, last_name, email, age){
+    this.first_name = first_name 
+    this.last_name = last_name 
+    this.email = email 
+    this.age = age
+  }
+  makeWidget(first_name,last_name){
+    return `${this.first_name} ${this.last_name} Widget`
+  }
+}
 
 
 
@@ -50,6 +61,24 @@
 */
 
 //Code Here
+class Manager{
+  constructor(first_name, last_name, email, age){
+    this.first_name = first_name 
+    this.last_name = last_name 
+    this.email = email 
+    this.age = age
+    this.reports = []
+  }
+  hire(employee){
+    this.reports.push(employee)
+  }
+  fire(index){
+    this.reports.splice(index,1)
+  }
+  makeWidget(first_name,last_name){
+    return `${this.first_name} ${this.last_name} Widget`
+  }
+}
 
 
 
@@ -76,6 +105,35 @@
 */
 
 //Code Here
+class ProgressiveManager{
+  constructor(first_name, last_name, email, age){
+    this.first_name = first_name 
+    this.last_name = last_name 
+    this.email = email 
+    this.age = age
+    this.reports = []
+    this.title = 'Not a manager'
+    this.titleNum = 0
+    this.bonus = 0
+  }
+  hire(employee){
+    this.reports.push(employee)
+    this.titleNum +=1
+    this.promote()
+  }
+  fire(index){
+    this.reports.splice(index,1)
+    this.bonus += 100
+  }
+  promote(titleNum){
+    this.titleNum === 0 ? this.title = 'Not a manager' : this.titleNum >0 && this.titleNum <4 ? this.title = 'Barely Manager'
+    : this.titleNum >5 && this.titleNum <11 ? this.title = 'Mostly Manager' : this.titleNum >10 && this.titleNum <51 ? this.title = 'Manager'
+    : this.titleNum >50 && this.titleNum <101 ? this.title = 'Manager Plus' : this.title = 'Bestest Manager'
+  }
+  makeWidget(first_name,last_name){
+    return `${this.first_name} ${this.last_name} Widget`
+  }
+}
 
 
 
@@ -103,5 +161,24 @@
 */
 
 //Code Here
-
+class Machine{
+  constructor(){
+    this.widgets_made_count = 0
+    this.wear_and_tear_count = 0
+    this.needs_reboot = false
+  }
+  fixMachine(){
+    this.needs_reboot = true
+  }
+  makeWidgets(num){
+    this.widgets_made_count += num
+    this.wear_and_tear_count += num/50
+  }
+  reboot(){
+    return () => {
+      this.wear_and_tear_count -= 10
+      this.needs_reboot = false
+    }
+  }
+}
 

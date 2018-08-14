@@ -21,7 +21,10 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
 */
 
 //Code Here
-let evenNumbers // = mixedNumbers.filter(/* Provide Your Callback Here */)
+function sortNums(num){
+  if(num%2===0){return num}
+}
+let evenNumbers = mixedNumbers.filter(sortNums)
 
 
 
@@ -44,7 +47,10 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 //Code Here
-let postTaxPrices // = prices.map(/* Provide Your Callback Here );
+function taxes(num){
+  num * 1.07
+}
+let postTaxPrices = prices.map(taxes);
 
 
 
@@ -62,9 +68,11 @@ const populations = [8175133, 3792621, 2695598, 2100263];
   (runningTotal, curElement, curIndex, wholeArray)=>{} Arrow Form
 */
 
-//Code Here
-let totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
+function sumOfPop(total,amount){
+  return total+amount
+}
 
+let totalPopulation = populations.reduce(sumOfPop)
 
 
 ////////// PROBLEM 4 //////////
@@ -89,7 +97,11 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 //Code Here
-let myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+function cb(obj){
+  if(obj['CP'] > 200){return obj['CP']}
+}
+
+let myStrongest = monstersInYourPocket.filter(cb)
 
 
 
@@ -103,11 +115,15 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 // Do not edit code above.
 
 /*
-  Use a higher order method to get the sum of all the order totals after adding in the sales tax
+  Use a higher order method to get the sum of each of the order totals after adding in the sales tax
 */
 
-let ordersTotal //Code Here
-
+let ordersTotal = orders.map(function(e, i){
+  for(i = 0; i<orders.length; i++){
+    return e.price *(1 + e.tax);
+  }
+  return ordersTotal;
+  })
 
 
 ////////// PROBLEM 6 //////////
@@ -126,6 +142,10 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal //Code Here
+let bobsPurchases = purchases.filter(function(e, i){
+  return e.owner === 'Bob';
+})
+let bobsTotal = bobsPurchases.reduce((total, amount) =>
+total + amount.price, 0)
 
 
